@@ -1,8 +1,3 @@
----
-title: "Getting and Cleaning Data - Programming assignment"
-output: html_document
----
-
 ### Data set
 The original dataset includes the following files:
 
@@ -45,4 +40,4 @@ The required transformations are achieved by the script called run_analysis.R, w
 * add a column for subject
 * write data into `my_data.txt`
 
-
+Run the script in the folder "UCI HAR Dataset" containing all required files.

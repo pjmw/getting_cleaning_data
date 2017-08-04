@@ -23,6 +23,8 @@ extract <- mergeddata[,cols]
 
 # label the columns
 labels <- list_features[cols]
+labels <- gsub("-","_", labels)
+labels <- gsub("\\()", "", labels)
 colnames(extract) <- labels
 
 # add a column for activity
@@ -45,6 +47,7 @@ extract <- rename(extract, subject = V1)
 # write data
 extract_group <- group_by(extract, subject, activity)
 my_data <- summarize_all(extract_group, mean)
+# or my_data <- summarize_at(extract_group, vars(tBodyAcc_mean_X:fBodyBodyGyroJerkMag_std), mean)
 write.csv(my_data, "my_data.csv")
 
 write.table(my_data, file = "my_data.txt", row.names = FALSE)
